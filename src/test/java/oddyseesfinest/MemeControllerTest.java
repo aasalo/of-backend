@@ -1,4 +1,4 @@
-package hello;
+package oddyseesfinest;
 
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.*;
@@ -6,6 +6,7 @@ import static org.junit.Assert.*;
 import java.net.URL;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,25 +18,25 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class HelloControllerIT {
+public class MemeControllerTest {
 
-    @LocalServerPort
-    private int port;
+	@LocalServerPort
+	private int port;
 
-    private URL base;
+	private URL base;
 
-    @Autowired
-    private TestRestTemplate template;
+	@Autowired
+	private TestRestTemplate template;
 
-    @Before
-    public void setUp() throws Exception {
-        this.base = new URL("http://localhost:" + port + "/");
-    }
+	@Before
+	public void setUp() throws Exception {
+		this.base = new URL("http://localhost:" + port + "/");
+	}
 
-    @Test
-    public void getHello() throws Exception {
-        ResponseEntity<String> response = template.getForEntity(base.toString(),
-                String.class);
-        assertThat(response.getBody(), equalTo("Oddysee's Finest"));
-    }
+	@Ignore
+	@Test
+	public void getHello() throws Exception {
+		ResponseEntity<String> response = template.getForEntity(base.toString(), String.class);
+		assertThat(response.getBody(), equalTo("Oddysee's Finest"));
+	}
 }

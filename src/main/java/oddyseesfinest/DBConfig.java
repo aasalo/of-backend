@@ -13,24 +13,20 @@ public class DBConfig {
 
 	final static Logger logger = LoggerFactory.getLogger(DBConfig.class);
 
-	@Bean
-	public BasicDataSource dataSource() throws URISyntaxException {
-
-		logger.info("trying to fetch dburi");
-
-		URI dbUri = new URI(System.getenv("DATABASE_URL"));
-
-		logger.info(dbUri.toString());
-
-		String username = dbUri.getUserInfo().split(":")[0];
-		String password = dbUri.getUserInfo().split(":")[1];
-		String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();
-
-		BasicDataSource basicDataSource = new BasicDataSource();
-		basicDataSource.setUrl(dbUrl);
-		basicDataSource.setUsername(username);
-		basicDataSource.setPassword(password);
-
-		return basicDataSource;
-	}
+	/*
+	 * @Bean public BasicDataSource dataSource() throws URISyntaxException {
+	 * 
+	 * URI dbUri = new URI(System.getenv("DATABASE_URL")); String username,
+	 * password, dbUrl;
+	 * 
+	 * username = dbUri.getUserInfo().split(":")[0]; password =
+	 * dbUri.getUserInfo().split(":")[1]; dbUrl = "jdbc:postgresql://" +
+	 * dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();
+	 * 
+	 * BasicDataSource basicDataSource = new BasicDataSource();
+	 * basicDataSource.setUrl(dbUrl); basicDataSource.setUsername(username);
+	 * basicDataSource.setPassword(password);
+	 * 
+	 * return basicDataSource; }
+	 */
 }

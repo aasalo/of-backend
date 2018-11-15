@@ -1,10 +1,13 @@
-package oddyseesfinest;
+package oddyseesfinest.model;
 
 public class Meme {
 
 	String name;
 	String[] tags;
-	// bytearray bytea;
+	String url;
+
+	public Meme() {
+	};
 
 	public Meme(String name, String[] tags) {
 		this.name = name;
